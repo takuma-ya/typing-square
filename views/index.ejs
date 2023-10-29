@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Takuma Yamashita">
+    <title>Typing Square</title>
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+
+      
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom" style="background-color: skyblue;">
+          <!--<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <img src="/images/logo.png">
+          </a>-->
+          <a href="/" style="width: 80%">
+            <img src="/images/logo.png"style="width: 100%">
+          </a>
+          <!--
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+          </ul>
+          -->
+          
+        </header>
+        <div class="container" style="background-color:white;">
+        <!-- Button trigger modal -->
+
+        <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+          <h1 class="display-4">楽曲一覧</h1>
+          <p class="lead">遊ぶ曲を選んでね。</p>
+        </div>
+        <div class="row">
+     
+          <div class="col-sm-3">
+            <div class="card" style="width: 100%;">
+              <img src="/images/buildings_and_sunset.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">sumset</h5>
+                <p class="card-text">レベル：★★☆☆☆</p>
+                <p>最高スコア：<strong id="score-1">0</strong></p>
+                <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="1">Play Game!</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card" style="width: 100%;">
+              <img src="/images/summar_road.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">road</h5>
+                <p class="card-text">レベル：★★★☆☆</p>
+                <p>最高スコア：<strong id="score-2">0</strong></p>
+                <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="2">Play Game!</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card" style="width: 100%;">
+              <img src="/images/dangeon.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">proper dose</h5>
+                <p class="card-text">レベル：★★★★☆</p>
+                <p>最高スコア：<strong id="score-3">0</strong></p>
+                <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="3">Play Game!</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card" style="width: 100%;">
+              <img src="/images/sunflower.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">canon</h5>
+                <p class="card-text">レベル：★★★★★</p>
+                <p>最高スコア：<strong id="score-4">0</strong></p>
+                <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="4">Play Game!</button>
+              </div>
+            </div>
+          </div>
+
+        <!-- Modal -->
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="modal-body">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+
+    <script src="javascripts/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <script src="javascripts/utils.js"></script>
+    <script src="javascripts/game.js"></script>
+      
+  </body>
+</html>
