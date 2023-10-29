@@ -29,57 +29,86 @@
         </header>
         <div class="container" style="background-color:white;">
         <!-- Button trigger modal -->
-
-        <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-          <h1 class="display-4">楽曲一覧</h1>
-          <p class="lead">遊ぶ曲を選んでね。</p>
+        <div class="row">
+          <div class="col-sm-10">
+            <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+              <h1 class="display-4">楽曲一覧</h1>
+              <p class="lead">遊ぶ曲を選んでね。</p>
+            </div>
+          </div>
         </div>
         <div class="row">
-     
-          <div class="col-sm-3">
-            <div class="card" style="width: 100%;">
-              <img src="/images/buildings_and_sunset.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">sumset</h5>
-                <p class="card-text">レベル：★★☆☆☆</p>
-                <p>最高スコア：<strong id="score-1">0</strong></p>
-                <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="1">Play Game!</button>
+          <div class="col-sm-10">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="card" style="width: 100%;">
+                  <img src="/images/buildings_and_sunset.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">sumset</h5>
+                    <p class="card-text">レベル：★★☆☆☆</p>
+                    <p>最高スコア：<strong id="score-1">0</strong></p>
+                    <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="1">Play Game!</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="card" style="width: 100%;">
+                  <img src="/images/summar_road.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">road</h5>
+                    <p class="card-text">レベル：★★★☆☆</p>
+                    <p>最高スコア：<strong id="score-2">0</strong></p>
+                    <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="2">Play Game!</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="card" style="width: 100%;">
+                  <img src="/images/dangeon.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">proper dose</h5>
+                    <p class="card-text">レベル：★★★★☆</p>
+                    <p>最高スコア：<strong id="score-3">0</strong></p>
+                    <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="3">Play Game!</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="card" style="width: 100%;">
+                  <img src="/images/sunflower.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">canon</h5>
+                    <p class="card-text">レベル：★★★★★</p>
+                    <p>最高スコア：<strong id="score-4">0</strong></p>
+                    <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="4">Play Game!</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-sm-3">
-            <div class="card" style="width: 100%;">
-              <img src="/images/summar_road.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">road</h5>
-                <p class="card-text">レベル：★★★☆☆</p>
-                <p>最高スコア：<strong id="score-2">0</strong></p>
-                <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="2">Play Game!</button>
+          <div class="col-sm-2">
+            <form class="needs-validation" novalidate action="/" method="post">
+              <label for="name" class="form-label">お名前</label>
+              <input type="text" class="form-control mb-sm-2" id="name" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid name is required.
               </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card" style="width: 100%;">
-              <img src="/images/dangeon.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">proper dose</h5>
-                <p class="card-text">レベル：★★★★☆</p>
-                <p>最高スコア：<strong id="score-3">0</strong></p>
-                <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="3">Play Game!</button>
+              <label for="passWord" class="form-label">合言葉</label>
+              <input type="text" class="form-control mb-sm-2" id="passWord" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid password is required.
               </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card" style="width: 100%;">
-              <img src="/images/sunflower.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">canon</h5>
-                <p class="card-text">レベル：★★★★★</p>
-                <p>最高スコア：<strong id="score-4">0</strong></p>
-                <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="4">Play Game!</button>
+              <div class="row">
+                <div class="col-sm-6 ">
+                  <button type="submit" class="btn btn-success btn-sm">新規登録</button>
+                </div>
+                <div class="col-sm-6">
+                  <button type="submit" class="btn btn-secondary btn-sm">ログイン</button>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
+        </div>
 
         <!-- Modal -->
 
@@ -95,7 +124,7 @@
           </div>
         </div>
       </div>
-
+    </div>
     </main>
 
 

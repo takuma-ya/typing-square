@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Typing Square' });
 });
 
+router.post('/', function(req, res, next) {
+  res.render('index', { title: 'ToDo App' });
+});
+
 module.exports = router;
