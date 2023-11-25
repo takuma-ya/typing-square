@@ -46,8 +46,8 @@
                   <div class="card-body">
                     <h5 class="card-title">sumset</h5>
                     <p class="card-text">レベル：★★☆☆☆</p>
-                    <p>最高スコア：<strong id="score-1">0</strong></p>
-                    <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="1">Play Game!</button>
+                    <p>最高スコア：<strong id="score-1"><%= score_1 %></strong></p>
+                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="1">Play Game!</button>
                   </div>
                 </div>
               </div>
@@ -57,8 +57,8 @@
                   <div class="card-body">
                     <h5 class="card-title">road</h5>
                     <p class="card-text">レベル：★★★☆☆</p>
-                    <p>最高スコア：<strong id="score-2">0</strong></p>
-                    <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="2">Play Game!</button>
+                    <p>最高スコア：<strong id="score-2"><%= score_2 %></strong></p>
+                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="2">Play Game!</button>
                   </div>
                 </div>
               </div>
@@ -68,8 +68,8 @@
                   <div class="card-body">
                     <h5 class="card-title">proper dose</h5>
                     <p class="card-text">レベル：★★★★☆</p>
-                    <p>最高スコア：<strong id="score-3">0</strong></p>
-                    <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="3">Play Game!</button>
+                    <p>最高スコア：<strong id="score-3"><%= score_3 %></strong></p>
+                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="3">Play Game!</button>
                   </div>
                 </div>
               </div>
@@ -79,36 +79,66 @@
                   <div class="card-body">
                     <h5 class="card-title">canon</h5>
                     <p class="card-text">レベル：★★★★★</p>
-                    <p>最高スコア：<strong id="score-4">0</strong></p>
-                    <button type="button" class="btn btn-primary btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="4">Play Game!</button>
+                    <p>最高スコア：<strong id="score-4"><%= score_4 %></strong></p>
+                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="4">Play Game!</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-2">
-            <form class="needs-validation" novalidate action="/" method="post">
-              <label for="name" class="form-label">お名前</label>
-              <input type="text" class="form-control mb-sm-2" id="name" placeholder="" value="" required>
+            <% if(isAuth) { %>
+              <p>ようこそ、<%= userName %>さん</p>
+                  <form action="logout" method="get">
+                    <div class="text-end">
+                      <button type="submit" class="btn btn-secondary btn-sm mb-4">ログアウト</button>
+                    </div>
+                  </form>
+              
+              
+                
+            <% } else { %>
+              <p>ログインしてスコアを保存しよう！</p>
+            <% } %>
+            <form class="needs-validation" novalidate action="?" method="post">
+              <label for="username" class="form-label">お名前</label>
+              <input required type="text" class="form-control mb-sm-2" id="username" name="username" placeholder="" value="" required>
               <div class="invalid-feedback">
                 Valid name is required.
               </div>
-              <label for="passWord" class="form-label">合言葉</label>
-              <input type="text" class="form-control mb-sm-2" id="passWord" placeholder="" value="" required>
+              <label for="password" class="form-label">合言葉</label>
+              <input required type="text" class="form-control mb-sm-2" id="password" name="password" placeholder="" value="" required>
               <div class="invalid-feedback">
                 Valid password is required.
               </div>
               <div class="row">
                 <div class="col-sm-6 ">
-                  <button type="submit" class="btn btn-success btn-sm">新規登録</button>
+                  <button type="submit" class="btn btn-success btn-sm" formaction="signup">新規登録</button>
                 </div>
                 <div class="col-sm-6">
-                  <button type="submit" class="btn btn-secondary btn-sm">ログイン</button>
+                  <button type="submit" class="btn btn-primary btn-sm" formaction="signin">ログイン</button>
                 </div>
               </div>
             </form>
           </div>
         </div>
+
+        <% if (typeof errorMessage === 'undefined') { var errorMessage = []; } %>
+        <% if(errorMessage.length != 0){ %>
+          <div>
+            <strong>Warning!</strong> The form contains <%= errorMessage.length %> errors.
+          </div>
+          <div>
+            <p><%= errorMessage %></p>
+            <p>hoge</p>
+            <ul>
+              <% for(let item of errorMessage){ %>
+                <li><%= item %></li>
+              <% } %>
+            </ul>
+          </div>
+        <% } %>
+
 
         <!-- Modal -->
 

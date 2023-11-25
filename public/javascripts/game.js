@@ -372,7 +372,33 @@ class ResultScene {
         if (isKeyPressed("Enter")) {
             let scoreId = "score-" + music.number;
             let maxScore = document.getElementById(scoreId).textContent;
+            if(score > maxScore) {
+                alert("ハイスコア更新！")
+            }
             document.getElementById(scoreId).textContent = Math.max(maxScore, score);
+
+            let data= new Object();
+            data.music_id = music.number;
+            data.score = score;
+            var xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.onreadystatechange = function()
+            {
+                var READYSTATE_COMPLETED = 4;
+                var HTTP_STATUS_OK = 200;
+
+                if( this.readyState == READYSTATE_COMPLETED
+                && this.status == HTTP_STATUS_OK )
+                {
+                    // レスポンスの表示
+                    alert( this.responseText );
+                }
+            }
+            xmlHttpRequest.open('POST', '/save_score');
+
+            // データをリクエスト ボディに含めて送信する
+            xmlHttpRequest.setRequestHeader("content-type", "application/json");
+            xmlHttpRequest.send(JSON.stringify(data));
+
             closeBtn.click();
         }
     }
