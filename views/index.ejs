@@ -44,10 +44,11 @@
                 <div class="card" style="width: 100%;">
                   <img src="/images/buildings_and_sunset.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title">sumset</h5>
+                    <h5 class="card-title">sunset</h5>
                     <p class="card-text">レベル：★★☆☆☆</p>
                     <p>最高スコア：<strong id="score-1"><%= score_1 %></strong></p>
                     <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="1">Play Game!</button>
+                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="1">Record</button>
                   </div>
                 </div>
               </div>
@@ -56,9 +57,10 @@
                   <img src="/images/summar_road.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">road</h5>
-                    <p class="card-text">レベル：★★★☆☆</p>
+                    <p class="card-text">レベル：★★★★☆</p>
                     <p>最高スコア：<strong id="score-2"><%= score_2 %></strong></p>
                     <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="2">Play Game!</button>
+                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="2">Record</button>
                   </div>
                 </div>
               </div>
@@ -67,9 +69,10 @@
                   <img src="/images/dangeon.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">proper dose</h5>
-                    <p class="card-text">レベル：★★★★☆</p>
+                    <p class="card-text">レベル：★★★☆☆</p>
                     <p>最高スコア：<strong id="score-3"><%= score_3 %></strong></p>
                     <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="3">Play Game!</button>
+                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="3">Record</button>
                   </div>
                 </div>
               </div>
@@ -81,6 +84,7 @@
                     <p class="card-text">レベル：★★★★★</p>
                     <p>最高スコア：<strong id="score-4"><%= score_4 %></strong></p>
                     <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="4">Play Game!</button>
+                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="4">Record</button>
                   </div>
                 </div>
               </div>
@@ -146,9 +150,21 @@
           <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" id="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body" id="modal-body">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="recordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn-close" id="btn-close-record" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="modal-body-record">
               </div>
             </div>
           </div>
@@ -161,7 +177,8 @@
     <script src="javascripts/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
     <script src="javascripts/utils.js"></script>
-    <script src="javascripts/game.js"></script>
+    <script src="javascripts/game.js"></script> 
+    <script src="javascripts/record.js"></script>
       
   </body>
 </html>
