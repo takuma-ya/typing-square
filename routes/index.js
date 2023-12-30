@@ -3,7 +3,7 @@ const { range } = require('express/lib/request');
 const router = express.Router();
 const knex = require('../db/knex');
 
-const num_music = 4;
+const num_music = 6;
 
 router.get('/', function (req, res, next) {
   const userId = req.session.userid;
@@ -32,6 +32,8 @@ router.get('/', function (req, res, next) {
               score_2: scores[1],
               score_3: scores[2],
               score_4: scores[3],
+              score_5: scores[4],
+              score_6: scores[5],
               isAuth: isAuth,
             });
           })
@@ -43,6 +45,8 @@ router.get('/', function (req, res, next) {
           score_2: -1,
           score_3: -1,
           score_4: -1,
+          score_5: -1,
+          score_6: -1,
           isAuth: isAuth,
         });
       });
@@ -52,6 +56,8 @@ router.get('/', function (req, res, next) {
       score_2: 0,
       score_3: 0,
       score_4: 0,
+      score_5: 0,
+      score_6: 0,
       isAuth: isAuth,
     });
   }

@@ -49,6 +49,33 @@ function register_music(){
             first_ts = 11500;
             beat = 4;
             break;
+        case "4":
+            number = 4;
+            src = 'canon.mp3';
+            note = 'canon.json';
+            time = 87000;
+            bpm = 90;
+            first_ts = 11500;
+            beat = 4;
+            break;
+        case "5":
+            number = 5;
+            src = 'reggae.mp3';
+            note = 'reggae.json';
+            time = 97000;
+            bpm = 82;
+            first_ts = 12670;
+            beat = 4;
+            break;
+        case "6":
+            number = 6;
+            src = 'kurumi.mp3';
+            note = 'kurumi.json';
+            time = 74000;
+            bpm = 134;
+            first_ts = 8065;
+            beat = 4;
+            break;
         default:
             throw new Error('Not registered music number');
     }

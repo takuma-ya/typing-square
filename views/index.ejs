@@ -10,167 +10,196 @@
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <main>
-
-      
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom" style="background-color: skyblue;">
-          <!--<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <img src="/images/logo.png">
-          </a>-->
-          <a href="/" style="width: 80%">
-            <img src="/images/logo.png"style="width: 100%">
-          </a>
-          <!--
-          <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-          </ul>
-          -->
-          
-        </header>
-        <div class="container" style="background-color:white;">
-        <!-- Button trigger modal -->
+    <main class="bg-body-secondary">
+      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom" style="background-color: skyblue;">
+        <!--<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <img src="/images/logo.png">
+        </a>-->
+        <a href="/" style="width: 80%; text-align: center">
+          <img src="/images/logo.png"style="width: 70%">
+        </a>
+        <!--
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+        </ul>
+        -->
+        
+      </header>
+      <div class="container">
         <div class="row">
           <div class="col-sm-10">
-            <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-              <h1 class="display-4">楽曲一覧</h1>
-              <p class="lead">遊ぶ曲を選んでね。</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-10">
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="card" style="width: 100%;">
-                  <img src="/images/buildings_and_sunset.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">sunset</h5>
-                    <p class="card-text">レベル：★★☆☆☆</p>
-                    <p>最高スコア：<strong id="score-1"><%= score_1 %></strong></p>
-                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="1">Play Game!</button>
-                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="1">Record</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="card" style="width: 100%;">
-                  <img src="/images/summar_road.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">road</h5>
-                    <p class="card-text">レベル：★★★★☆</p>
-                    <p>最高スコア：<strong id="score-2"><%= score_2 %></strong></p>
-                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="2">Play Game!</button>
-                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="2">Record</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="card" style="width: 100%;">
-                  <img src="/images/dangeon.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">proper dose</h5>
-                    <p class="card-text">レベル：★★★☆☆</p>
-                    <p>最高スコア：<strong id="score-3"><%= score_3 %></strong></p>
-                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="3">Play Game!</button>
-                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="3">Record</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="card" style="width: 100%;">
-                  <img src="/images/sunflower.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">canon</h5>
-                    <p class="card-text">レベル：★★★★★</p>
-                    <p>最高スコア：<strong id="score-4"><%= score_4 %></strong></p>
-                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="4">Play Game!</button>
-                    <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="4">Record</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <% if(isAuth) { %>
-              <p>ようこそ、<%= userName %>さん</p>
-                  <form action="logout" method="get">
-                    <div class="text-end">
-                      <button type="submit" class="btn btn-secondary btn-sm mb-4">ログアウト</button>
-                    </div>
-                  </form>
-              
-              
-                
-            <% } else { %>
-              <p>ログインしてスコアを保存しよう！</p>
-            <% } %>
-            <form class="needs-validation" novalidate action="?" method="post">
-              <label for="username" class="form-label">お名前</label>
-              <input required type="text" class="form-control mb-sm-2" id="username" name="username" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid name is required.
-              </div>
-              <label for="password" class="form-label">合言葉</label>
-              <input required type="text" class="form-control mb-sm-2" id="password" name="password" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid password is required.
-              </div>
+            <div class="mx-1 p-3 bg-body">
+              <!--
+              <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                <h1 class="display-4">楽曲一覧</h1>
+                <p class="lead">遊ぶ曲を選んでね。</p>
+              </div>-->
               <div class="row">
-                <div class="col-sm-6 ">
-                  <button type="submit" class="btn btn-success btn-sm" formaction="signup">新規登録</button>
+                <div class="col-sm-3">
+                  <div class="card" style="width: 100%;">
+                    <img src="/images/buildings_and_sunset.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">sunset</h5>
+                      <p class="card-text">レベル：★★☆☆☆</p>
+                      <p>最高スコア：<strong id="score-1"><%= score_1 %></strong></p>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="1">Play Game!</button>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="1">Record</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-sm-6">
-                  <button type="submit" class="btn btn-primary btn-sm" formaction="signin">ログイン</button>
+                <div class="col-sm-3">
+                  <div class="card" style="width: 100%;">
+                    <img src="/images/summar_road.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">road</h5>
+                      <p class="card-text">レベル：★★★★☆</p>
+                      <p>最高スコア：<strong id="score-2"><%= score_2 %></strong></p>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="2">Play Game!</button>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="2">Record</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card" style="width: 100%;">
+                    <img src="/images/dangeon.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">proper dose</h5>
+                      <p class="card-text">レベル：★★★☆☆</p>
+                      <p>最高スコア：<strong id="score-3"><%= score_3 %></strong></p>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="3">Play Game!</button>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="3">Record</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card" style="width: 100%;">
+                    <img src="/images/sunflower.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">canon</h5>
+                      <p class="card-text">レベル：★★★★★</p>
+                      <p>最高スコア：<strong id="score-4"><%= score_4 %></strong></p>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="4">Play Game!</button>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="4">Record</button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </form>
-          </div>
-        </div>
-
-        <% if (typeof errorMessage === 'undefined') { var errorMessage = []; } %>
-        <% if(errorMessage.length != 0){ %>
-          <div>
-            <strong>Warning!</strong> The form contains <%= errorMessage.length %> errors.
-          </div>
-          <div>
-            <p><%= errorMessage %></p>
-            <p>hoge</p>
-            <ul>
-              <% for(let item of errorMessage){ %>
-                <li><%= item %></li>
-              <% } %>
-            </ul>
-          </div>
-        <% } %>
-
-
-        <!-- Modal -->
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" id="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body" id="modal-body">
+              <div class="row my-5">
+                <div class="col-sm-3">
+                  <div class="card" style="width: 100%;">
+                    <img src="/images/sunset_beach.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">reggae time</h5>
+                      <p class="card-text">レベル：★☆☆☆☆</p>
+                      <p>最高スコア：<strong id="score-5"><%= score_5 %></strong></p>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="5">Play Game!</button>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="5">Record</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card" style="width: 100%;">
+                    <img src="/images/kurumi.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">くるみ割り人形：行進曲</h5>
+                      <p class="card-text">レベル：★★☆☆☆</p>
+                      <p>最高スコア：<strong id="score-6"><%= score_6 %></strong></p>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="6">Play Game!</button>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="6">Record</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="modal fade" id="recordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" id="btn-close-record" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body" id="modal-body-record">
-              </div>
+          <div class="col-sm-2 bg-body">
+            <div class="mx-1 p-3">
+              <% if(isAuth) { %>
+                <p>ようこそ、<%= userName %>さん</p>
+                    <form action="logout" method="get">
+                      <div class="text-end">
+                        <button type="submit" class="btn btn-secondary btn-sm mb-4">ログアウト</button>
+                      </div>
+                    </form>
+              <% } else { %>
+                <p>ログインしてスコアを保存しよう！</p>
+              <% } %>
+              <form class="needs-validation" novalidate action="?" method="post">
+                <label for="username" class="form-label">お名前</label>
+                <input required type="text" class="form-control mb-sm-2" id="username" name="username" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid name is required.
+                </div>
+                <label for="password" class="form-label">合言葉</label>
+                <input required type="text" class="form-control mb-sm-2" id="password" name="password" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid password is required.
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 ">
+                    <button type="submit" class="btn btn-success btn-sm" formaction="signup">新規登録</button>
+                  </div>
+                  <div class="col-sm-6">
+                    <button type="submit" class="btn btn-primary btn-sm" formaction="signin">ログイン</button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <% if (typeof errorMessage === 'undefined') { var errorMessage = []; } %>
+      <% if(errorMessage.length != 0){ %>
+        <div>
+          <strong>Warning!</strong> The form contains <%= errorMessage.length %> errors.
+        </div>
+        <div>
+          <p><%= errorMessage %></p>
+          <p>hoge</p>
+          <ul>
+            <% for(let item of errorMessage){ %>
+              <li><%= item %></li>
+            <% } %>
+          </ul>
+        </div>
+      <% } %>
+      
+      <div class="container-fluid bg-body">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="/credit" class="nav-link px-2 text-body-secondary">Credit</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+          </ul>
+          <p class="text-center text-body-secondary">&copy; 2024 Typing Square</p>
+        </footer>
+      </div>
+
+      <!-- Modal -->
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" id="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="recordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" id="btn-close-record" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body-record">
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
 
