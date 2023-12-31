@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 router.post('/', function (req, res, next) {
     const music_id = req.body.music_id;
     const score = req.body.score;
+    const rate = req.body.rate;
     const userId = req.session.userid;
     const isAuth = Boolean(userId);
     if (isAuth) {
@@ -18,7 +19,7 @@ router.post('/', function (req, res, next) {
             }
             else {
                 knex("scores")
-                .insert({user_id: userId, music_id: music_id, score: score})
+                .insert({user_id: userId, music_id: music_id, score: score, rate: rate, date: knex.fn.now()})
                 .then(function () {
                     res.status(200);
                 })

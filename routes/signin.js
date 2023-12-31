@@ -14,27 +14,20 @@ router.post('/', function (req, res, next) {
       .select("*")
       .then(async function (results) {
         if (results.length === 0) {
-          res.render("index", {
-            title: "Sign in",
-            errorMessage: ["ユーザが見つかりません"],
-          });
+          req.session.error = 'ユーザが見つかりません';
+          res.redirect("/");
         } else if (await bcrypt.compare(password, results[0].password)) {
           req.session.userid = results[0].id;
           res.redirect('/');
         } else {
-          res.render("index", {
-            title: "Sign in",
-            errorMessage: ["ユーザが見つかりません"],
-          });
+          req.session.error = 'ユーザが見つかりません';
+          res.redirect("/");
         }
       })
       .catch(function (err) {
         console.error(err);
-        res.render("index", {
-          title: "Sign in",
-          errorMessage: [err.sqlMessage],
-          isAuth: false,
-        });
+        req.session.error = err.sqlMessage;
+        res.redirect("/");
       });
   });
 

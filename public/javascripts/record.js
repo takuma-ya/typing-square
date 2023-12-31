@@ -55,10 +55,11 @@ class MainSceneRecord extends MainScene {
         
 
         this.backImage = this.add.image(1920 / 2, 1080 / 2, 'sky').setDisplaySize(1920,1080);
-        this.noteBar = this.add.rectangle(1920 / 2, 800, 1920, 300, 0x808000);
+        this.noteBar = this.add.rectangle(1920 / 2, 800, 1920, 300, 0x104e60);
         this.targetBar = this.add.rectangle(200, 800, 10, 300, 0x000000);
 
-        this.sax_cat = this.add.image(1920 / 2, 400, 'sax_cat_center');
+        this.character = this.add.image(1920 / 2, 350, 'character');
+        this.character.scale = 0.4;
 
         // The score text
         this.scoreText = this.add.text(100, 100, "SCORE", { fontFamily: "arial", fontSize: "100px" });
@@ -67,7 +68,7 @@ class MainSceneRecord extends MainScene {
         this.scene.add("result", ResultSceneRecord);
         // We create the audio object and play it
         sound = this.sound.add("music");
-        sound.volume = 0.1;
+        sound.volume = music.volume;
         await sound.play();
         this.startTime = Math.floor(sound.seek * 1000)
         console.log("start")
@@ -113,7 +114,7 @@ class MainSceneRecord extends MainScene {
         this.firstKeysPressed = getFirstKeysPressed()
         if (this.firstKeysPressed.length != 0) {
             // we create a new collider at the position of the red bar
-            let collider = this.add.image(200, 800, "Stamp").setDisplaySize(10,10);
+            let collider = this.add.image(200, 800, "Stamp").setDisplaySize(100,100);
 
             // attach physics
             this.physics.add.existing(collider);

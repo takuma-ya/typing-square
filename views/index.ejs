@@ -41,7 +41,11 @@
                     <div class="card-body">
                       <h5 class="card-title">sunset</h5>
                       <p class="card-text">レベル：★★☆☆☆</p>
-                      <p>最高スコア：<strong id="score-1"><%= score_1 %></strong></p>
+                      <% if(rate_1 == 100) { %>
+                        <p>最高スコア：<strong id="score-1" class="text-success"><%= score_1 %></strong><strong id="score-1" class="text-success">(<%= rate_1 %>%)</strong></p>
+                      <% } else { %>
+                        <p>最高スコア：<strong id="score-1"><%= score_1 %></strong><strong id="score-1">(<%= rate_1 %>%)</strong></p>
+                      <% } %>
                       <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="1">Play Game!</button>
                       <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="1">Record</button>
                     </div>
@@ -53,7 +57,11 @@
                     <div class="card-body">
                       <h5 class="card-title">road</h5>
                       <p class="card-text">レベル：★★★★☆</p>
-                      <p>最高スコア：<strong id="score-2"><%= score_2 %></strong></p>
+                      <% if(rate_2 == 100) { %>
+                        <p>最高スコア：<strong id="score-2" class="text-success"><%= score_2 %></strong><strong id="score-2" class="text-success">(<%= rate_2 %>%)</strong></p>
+                      <% } else { %>
+                        <p>最高スコア：<strong id="score-2"><%= score_2 %></strong><strong id="score-2">(<%= rate_2 %>%)</strong></p>
+                      <% } %>
                       <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="2">Play Game!</button>
                       <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="2">Record</button>
                     </div>
@@ -65,7 +73,11 @@
                     <div class="card-body">
                       <h5 class="card-title">proper dose</h5>
                       <p class="card-text">レベル：★★★☆☆</p>
-                      <p>最高スコア：<strong id="score-3"><%= score_3 %></strong></p>
+                      <% if(rate_3 == 100) { %>
+                        <p>最高スコア：<strong id="score-3" class="text-success"><%= score_3 %></strong><strong id="score-3" class="text-success">(<%= rate_3 %>%)</strong></p>
+                      <% } else { %>
+                        <p>最高スコア：<strong id="score-3"><%= score_3 %></strong><strong id="score-3">(<%= rate_3 %>%)</strong></p>
+                      <% } %>
                       <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="3">Play Game!</button>
                       <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="3">Record</button>
                     </div>
@@ -77,7 +89,11 @@
                     <div class="card-body">
                       <h5 class="card-title">canon</h5>
                       <p class="card-text">レベル：★★★★★</p>
-                      <p>最高スコア：<strong id="score-4"><%= score_4 %></strong></p>
+                      <% if(rate_4 == 100) { %>
+                        <p>最高スコア：<strong id="score-4" class="text-success"><%= score_4 %></strong><strong id="score-4" class="text-success">(<%= rate_4 %>%)</strong></p>
+                      <% } else { %>
+                        <p>最高スコア：<strong id="score-4"><%= score_4 %></strong><strong id="score-4">(<%= rate_4 %>%)</strong></p>
+                      <% } %>
                       <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="4">Play Game!</button>
                       <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="4">Record</button>
                     </div>
@@ -91,7 +107,11 @@
                     <div class="card-body">
                       <h5 class="card-title">reggae time</h5>
                       <p class="card-text">レベル：★☆☆☆☆</p>
-                      <p>最高スコア：<strong id="score-5"><%= score_5 %></strong></p>
+                      <% if(rate_5 == 100) { %>
+                        <p>最高スコア：<strong id="score-5" class="text-success"><%= score_5 %></strong><strong id="score-5" class="text-success">(<%= rate_5 %>%)</strong></p>
+                      <% } else { %>
+                        <p>最高スコア：<strong id="score-5"><%= score_5 %></strong><strong id="score-5">(<%= rate_5 %>%)</strong></p>
+                      <% } %>
                       <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="5">Play Game!</button>
                       <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="5">Record</button>
                     </div>
@@ -103,9 +123,79 @@
                     <div class="card-body">
                       <h5 class="card-title">くるみ割り人形：行進曲</h5>
                       <p class="card-text">レベル：★★☆☆☆</p>
-                      <p>最高スコア：<strong id="score-6"><%= score_6 %></strong></p>
+                      <% if(rate_6 == 100) { %>
+                        <p>最高スコア：<strong id="score-6" class="text-success"><%= score_6 %></strong><strong id="score-6" class="text-success">(<%= rate_6 %>%)</strong></p>
+                      <% } else { %>
+                        <p>最高スコア：<strong id="score-6"><%= score_6 %></strong><strong id="score-6">(<%= rate_6 %>%)</strong></p>
+                      <% } %>
                       <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="6">Play Game!</button>
                       <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="6">Record</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card" style="width: 100%;">
+                    <img src="/images/rose.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">カルメン</h5>
+                      <p class="card-text">レベル：★☆☆☆☆</p>
+                      <% if(rate_7 == 100) { %>
+                        <p>最高スコア：<strong id="score-7" class="text-success"><%= score_7 %></strong><strong id="score-7" class="text-success">(<%= rate_7 %>%)</strong></p>
+                      <% } else { %>
+                        <p>最高スコア：<strong id="score-7"><%= score_7 %></strong><strong id="score-7">(<%= rate_7 %>%)</strong></p>
+                      <% } %>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="7">Play Game!</button>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="7">Record</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card" style="width: 100%;">
+                    <img src="/images/star.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Sleepiness</h5>
+                      <p class="card-text">レベル：★★☆☆☆</p>
+                      <% if(rate_8 == 100) { %>
+                        <p>最高スコア：<strong id="score-8" class="text-success"><%= score_8 %></strong><strong id="score-8" class="text-success">(<%= rate_8 %>%)</strong></p>
+                      <% } else { %>
+                        <p>最高スコア：<strong id="score-8"><%= score_8 %></strong><strong id="score-8">(<%= rate_8 %>%)</strong></p>
+                      <% } %>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="8">Play Game!</button>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="8">Record</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row my-5">
+                <div class="col-sm-3">
+                  <div class="card" style="width: 100%;">
+                    <img src="/images/vegitables.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">魔法のクッキング</h5>
+                      <p class="card-text">レベル：★★★☆☆</p>
+                      <% if(rate_9 == 100) { %>
+                        <p>最高スコア：<strong id="score-9" class="text-success"><%= score_9 %></strong><strong id="score-9" class="text-success">(<%= rate_9 %>%)</strong></p>
+                      <% } else { %>
+                        <p>最高スコア：<strong id="score-9"><%= score_9 %></strong><strong id="score-9">(<%= rate_9 %>%)</strong></p>
+                      <% } %>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="9">Play Game!</button>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="9">Record</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="card" style="width: 100%;">
+                    <img src="/images/atou_spring.jpg" class="card-img-top" style="width: 100%; aspect-ratio: 1.5" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Pops up the mind wings</h5>
+                      <p class="card-text">レベル：★★☆☆☆</p>
+                      <% if(rate_10 == 100) { %>
+                        <p>最高スコア：<strong id="score-10" class="text-success"><%= score_10 %></strong><strong id="score-10" class="text-success">(<%= rate_10 %>%)</strong></p>
+                      <% } else { %>
+                        <p>最高スコア：<strong id="score-10"><%= score_10 %></strong><strong id="score-10">(<%= rate_10 %>%)</strong></p>
+                      <% } %>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#exampleModal" data-music-number="10">Play Game!</button>
+                      <button type="button" class="btn btn-info btn-selector" data-bs-toggle="modal" data-bs-target="#recordModal" data-music-number="10">Record</button>
                     </div>
                   </div>
                 </div>
@@ -124,17 +214,17 @@
               <% } else { %>
                 <p>ログインしてスコアを保存しよう！</p>
               <% } %>
-              <form class="needs-validation" novalidate action="?" method="post">
+              <form class="needs-validation" action="?" method="post">
                 <label for="username" class="form-label">お名前</label>
-                <input required type="text" class="form-control mb-sm-2" id="username" name="username" placeholder="" value="" required>
-                <div class="invalid-feedback">
+                <input type="text" class="form-control mb-sm-2" id="username" name="username" placeholder="" value="" required="required">
+                <!--<div class="invalid-feedback">
                   Valid name is required.
-                </div>
+                </div>-->
                 <label for="password" class="form-label">合言葉</label>
-                <input required type="text" class="form-control mb-sm-2" id="password" name="password" placeholder="" value="" required>
-                <div class="invalid-feedback">
+                <input type="text" class="form-control mb-sm-2" id="password" name="password" placeholder="" value="" required="required">
+                <!-- <div class="invalid-feedback">
                   Valid password is required.
-                </div>
+                </div>-->
                 <div class="row">
                   <div class="col-sm-6 ">
                     <button type="submit" class="btn btn-success btn-sm" formaction="signup">新規登録</button>
@@ -145,31 +235,22 @@
                 </div>
               </form>
             </div>
+            <% if (typeof errorMessage === 'undefined') { var errorMessage = []; } %>
+            <% if(errorMessage.length != 0){ %>
+              <div>
+                <p><%= errorMessage %></p>
+              </div>
+            <% } %>
           </div>
         </div>
       </div>
 
-      <% if (typeof errorMessage === 'undefined') { var errorMessage = []; } %>
-      <% if(errorMessage.length != 0){ %>
-        <div>
-          <strong>Warning!</strong> The form contains <%= errorMessage.length %> errors.
-        </div>
-        <div>
-          <p><%= errorMessage %></p>
-          <p>hoge</p>
-          <ul>
-            <% for(let item of errorMessage){ %>
-              <li><%= item %></li>
-            <% } %>
-          </ul>
-        </div>
-      <% } %>
+     
       
       <div class="container-fluid bg-body">
         <footer class="py-3 my-4">
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="/credit" class="nav-link px-2 text-body-secondary">Credit</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+            <li class="nav-item"><a href="/credit" class="nav-link px-2 text-body-secondary">使用楽曲、およびイラストの詳細</a></li>
           </ul>
           <p class="text-center text-body-secondary">&copy; 2024 Typing Square</p>
         </footer>

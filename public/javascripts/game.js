@@ -9,6 +9,7 @@ let btnList;
 let game;
 let sound;
 let score;
+let full_score;
 
 function register_music(){
     switch(this.dataset.musicNumber){
@@ -21,6 +22,8 @@ function register_music(){
             bpm = 91;
             first_ts = 11260;
             beat = 4;
+            volume = 0.5;
+            character = "kohaku_dj.png";
             break;
         case "2":
             number = 2;
@@ -30,6 +33,8 @@ function register_music(){
             bpm = 81;
             first_ts = 6320;
             beat = 4;
+            volume = 0.5;
+            character = "kohaku_dj.png";
             break;
         case "3":
             number = 3;
@@ -39,6 +44,8 @@ function register_music(){
             bpm = 120;
             first_ts = 8500;
             beat = 3;
+            volume = 0.5;
+            character = "kohaku_dj.png";
             break;
         case "4":
             number = 4;
@@ -48,15 +55,8 @@ function register_music(){
             bpm = 90;
             first_ts = 11500;
             beat = 4;
-            break;
-        case "4":
-            number = 4;
-            src = 'canon.mp3';
-            note = 'canon.json';
-            time = 87000;
-            bpm = 90;
-            first_ts = 11500;
-            beat = 4;
+            volume = 1.0;
+            character = "kohaku_conductor.png";
             break;
         case "5":
             number = 5;
@@ -66,6 +66,8 @@ function register_music(){
             bpm = 82;
             first_ts = 12670;
             beat = 4;
+            volume = 0.5;
+            character = "kohaku_dj.png";
             break;
         case "6":
             number = 6;
@@ -75,11 +77,58 @@ function register_music(){
             bpm = 134;
             first_ts = 8065;
             beat = 4;
+            volume = 5;
+            character = "kohaku_conductor.png";
+            break;
+        case "7":
+            number = 7;
+            src = 'carmen.mp3';
+            note = 'carmen.json';
+            time = 60000;
+            bpm = 135;
+            first_ts = 4060;
+            beat = 1;
+            volume = 1.0;
+            character = "kohaku_conductor.png";
+            break;
+        case "8":
+            number = 8;
+            src = 'Sleepiness.mp3';
+            note = 'Sleepiness.json';
+            time = 84000;
+            bpm = 93;
+            first_ts = 5840;
+            beat = 2;
+            volume = 1.0;
+            character = "kohaku_drum.png";
+            break;
+        case "9":
+            number = 9;
+            src = 'magical_cooking.mp3';
+            note = 'magical_cooking.json';
+            time = 67000;
+            time = 10000;
+            bpm = 72.6;
+            first_ts = 7265;
+            beat = 2;
+            volume = 1.0;
+            character = "kohaku_piano.png";
+            break;
+        case "10":
+            number = 10;
+            src = 'pops_up_the_mind_wings.mp3';
+            note = 'pops_up_the_mind_wings.json';
+            time = 48500;
+            bpm = 105;
+            first_ts = 4870;
+            beat = 2;
+            volume = 1.0;
+            character = "kohaku_piano.png";
             break;
         default:
             throw new Error('Not registered music number');
     }
-    music = new Music(number, src, note, time, bpm, first_ts, beat);
+    music = new Music(number, src, note, time, bpm, first_ts, beat, volume, character);
 }
 
 function sleep(waitMsec) {
@@ -122,7 +171,7 @@ modalRecord.addEventListener("shown.bs.modal", () => {
 
 class Music {
     
-    constructor(number, src, note, time, bpm, first_ts, beat){
+    constructor(number, src, note, time, bpm, first_ts, beat, volume, character){
         this.number = number;
         this.src = src;
         this.note = note;
@@ -130,6 +179,8 @@ class Music {
         this.bpm = bpm;
         this.first_ts = first_ts;
         this.beat = beat;
+        this.volume = volume;
+        this.character = character;
     }
 }
 
@@ -210,15 +261,14 @@ class MainScene {
         this.load.image("KeyX", "/images/keyX.png");
         this.load.image("KeyY", "/images/keyY.png");
         this.load.image("KeyZ", "/images/keyZ.png");
-        this.load.image('sky', '/images/sky.png');
-        this.load.image('sax_cat_center', '/images/sax_cat.png');
-        this.load.image('sax_cat_left', '/images/sax_cat_left.png');
-        this.load.image('sax_cat_right', '/images/sax_cat_right.png');
+        this.load.image("sky", "/images/sky.png");
+        this.load.image("character", "/images/" + music.character);
         }
 
     async create() {
         // Notes timestamps, made with the other script "record.html". They are relative to the start of the song, meaning a value of 1000 equals to 1 second after the song has started
         this.notesTimestamps = this.getNote();
+        full_score = Object.keys(this.notesTimestamps).length;
         this.timeToFall = 2000; // ms, time for the note to go to the bottom. The lower the faster/hardest
         this.lastNoteIndex = 0; // last note spawned
         this.notes = [];        // array of notes already spawned
@@ -234,10 +284,11 @@ class MainScene {
         
 
         this.backImage = this.add.image(1920 / 2, 1080 / 2, 'sky').setDisplaySize(1920,1080);
-        this.noteBar = this.add.rectangle(1920 / 2, 800, 1920, 300, 0x808000);
+        this.noteBar = this.add.rectangle(1920 / 2, 800, 1920, 300, 0x104e60);
         this.targetBar = this.add.rectangle(200, 800, 10, 300, 0x000000);
 
-        this.sax_cat = this.add.image(1920 / 2, 400, 'sax_cat_center');
+        this.character = this.add.image(1920 / 2, 350, 'character');
+        this.character.scale = 0.4;
 
         // The score text
         this.scoreText = this.add.text(100, 100, "SCORE", { fontFamily: "arial", fontSize: "100px" });
@@ -246,7 +297,7 @@ class MainScene {
         this.scene.add("result", ResultScene);
         // We create the audio object and play it
         sound = this.sound.add("music");
-        sound.volume = 0.1;
+        sound.volume = music.volume;
         await sound.play();
         this.startTime = Math.floor(sound.seek * 1000)
         console.log(sound.seek)
@@ -353,20 +404,16 @@ class MainScene {
     backgroundAnimation() {
         switch (Math.floor(( Math.floor(sound.seek * 1000) - this.startTime) / 1000 )%4){
             case 0:
-                this.sax_cat.destroy();
-                this.sax_cat = this.add.image(1920 / 2, 400, 'sax_cat_center');
+                this.character.rotation += 0.01;
                 break;
             case 1:
-                this.sax_cat.destroy();
-                this.sax_cat = this.add.image(1920 / 2, 400, 'sax_cat_left');
+                this.character.rotation -= 0.01;
                 break;
             case 2:
-                this.sax_cat.destroy();
-                this.sax_cat = this.add.image(1920 / 2, 400, 'sax_cat_center');
+                this.character.rotation -= 0.01;
                 break;
             case 3:
-                this.sax_cat.destroy();
-                this.sax_cat = this.add.image(1920 / 2, 400, 'sax_cat_right');
+                this.character.rotation += 0.01;
                 break;
 
         }
@@ -416,6 +463,7 @@ class ResultScene {
             let data= new Object();
             data.music_id = music.number;
             data.score = score;
+            data.rate = Math.floor(100 * score / (100 * full_score));
             var xmlHttpRequest = new XMLHttpRequest();
             xmlHttpRequest.onreadystatechange = function()
             {
