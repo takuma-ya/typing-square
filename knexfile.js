@@ -33,10 +33,10 @@ module.exports = {
   production: {
     client: "mysql2",
     connection: {
-      host : '127.0.0.1',
       database: "typing_square",
       user: "root",
       password: "Takuma_817",
+      socketPath: "/cloudsql/typing-square:asia-northeast1:typing-square-sql",
     },
     pool: {
       min: 2,

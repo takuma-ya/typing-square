@@ -20,7 +20,7 @@ router.post('/', function (req, res, next) {
           req.session.userid = results[0].id;
           res.redirect('/');
         } else {
-          req.session.error = 'ユーザが見つかりません';
+          req.session.error = '合言葉が間違っています';
           res.redirect("/");
         }
       })

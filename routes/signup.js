@@ -20,6 +20,7 @@ router.post('/', function (req, res, next) {
             knex("users")
               .insert({name: username, password: hashedPassword})
               .then(function () {
+                req.session.error = '登録完了です！ログインしてね。';
                 res.redirect("/");
               })
             }

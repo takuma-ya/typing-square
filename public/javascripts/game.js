@@ -107,7 +107,6 @@ function register_music(){
             src = 'magical_cooking.mp3';
             note = 'magical_cooking.json';
             time = 67000;
-            time = 10000;
             bpm = 72.6;
             first_ts = 7265;
             beat = 2;
@@ -454,16 +453,24 @@ class ResultScene {
 
         if (isKeyPressed("Enter")) {
             let scoreId = "score-" + music.number;
+            let rateId = "rate-" + music.number;
             let maxScore = document.getElementById(scoreId).textContent;
+            let maxRate = document.getElementById(rateId).textContent;
+            let rate = Math.floor(100 * score / (100 * full_score));
             if(score > maxScore) {
                 alert("ハイスコア更新！")
             }
+            if(rate == 100) {
+                document.getElementById(scoreId).style.color = "green";
+                document.getElementById(rateId).style.color = "green";
+            }
             document.getElementById(scoreId).textContent = Math.max(maxScore, score);
+            document.getElementById(rateId).textContent = Math.max(maxRate, rate);
 
             let data= new Object();
             data.music_id = music.number;
             data.score = score;
-            data.rate = Math.floor(100 * score / (100 * full_score));
+            data.rate = rate;
             var xmlHttpRequest = new XMLHttpRequest();
             xmlHttpRequest.onreadystatechange = function()
             {
